@@ -4,9 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class Main {
-    public static void main(String[] args) {
+public class SeleniumSample {
+    @Test
+    public static void test() {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com");

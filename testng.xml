@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/b_kar/Downloads/projects/Selenium">
+        <classes>
+            <class name="org.example.SeleniumSample">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+            <class name="org.restassured.PutPatchDeleteExample">
+                <methods>
+                    <include name="testPut"/>
+                    <include name="testPatch"/>
+                    <include name="testDelete"/>
+                </methods>
+            </class>
+            <class name="org.restassured.TestGet">
+                <methods>
+                    <include name="testGet"/>
+                    <include name="testPost"/>
+                </methods>
+            </class>
+            <class name="org.restassured.TestRestAssuredGet">
+                <methods>
+                    <include name="test_1"/>
+                    <include name="test_2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
