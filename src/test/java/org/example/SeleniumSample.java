@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SeleniumSample {
     @Test
-    public static void test() {
+    public static void sampleTest() {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com");
@@ -18,7 +18,6 @@ public class SeleniumSample {
         System.out.println("Title Validated");
         driver.findElement(By.cssSelector("#navbtn_tutorials")).click();
         driver.findElement(By.xpath("//a[@class='w3-bar-item ga-top-drop w3-button'][text()='Learn HTML']")).click();
-
         driver.quit();
     }
 }
