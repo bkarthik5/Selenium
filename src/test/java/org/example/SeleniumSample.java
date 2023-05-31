@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,18 +14,26 @@ import org.testng.annotations.Test;
 
 public class SeleniumSample {
     static WebDriver driver;
-    String username = System.getenv("LT_USERNAME") == null ? "LT_USERNAME": System.getenv("LT_USERNAME");
-    String accesskey = System.getenv("LT_ACCESS_KEY") == null ? "LT_ACCESS_KEY": System.getenv("LT_ACCESS_KEY");
-    String gridURL = "@hub.lambdatest.com/wd/hub";
+//    String username = System.getenv("LT_USERNAME") == null ? "LT_USERNAME": System.getenv("LT_USERNAME");
+//    String accesskey = System.getenv("LT_ACCESS_KEY") == null ? "LT_ACCESS_KEY": System.getenv("LT_ACCESS_KEY");
+//    String gridURL = "@hub.lambdatest.com/wd/hub";
     @BeforeTest
     void setup() {
-        // Set up the wWebDriverManager for chrome driver
+        ChromeOptions chromeOptions=new ChromeOptions();
+        chromeOptions.setHeadless(true);
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disbale-dev-shm-usage");
         WebDriverManager.chromedriver().setup();
-        // Create the driver object
-        driver = new ChromeDriver();
     }
     @Test
     public void sampleTest() {
+        // Set up the wWebDriverManager for chrome driver
+
+//        WebDriverManager.chromedriver().setup();
+        // Create the driver object
+
+        driver = new ChromeDriver();
+
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com");
         String expectedTitle = "W3Schools Online Web Tutorials";
