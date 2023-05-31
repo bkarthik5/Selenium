@@ -25,6 +25,7 @@ public class SeleniumSample {
         chromeOptions.addArguments("--disbale-dev-shm-usage");
         chromeOptions.addArguments("--remote-allow-origins=*");
         chromeOptions.addArguments("--remote-debugging-port=9222");
+        chromeOptions.addArguments("windows-size=1200*600");
        // chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
        WebDriverManager.chromedriver().setup();
