@@ -24,6 +24,7 @@ public class SeleniumSample {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disbale-dev-shm-usage");
         chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--remote-debugging-port=9222");
        // chromeOptions.addArguments("--headless");
        // WebDriverManager.chromedriver().setup();
 
