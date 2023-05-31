@@ -26,7 +26,8 @@ public class SeleniumSample {
         chromeOptions.addArguments("--remote-allow-origins=*");
         chromeOptions.addArguments("--remote-debugging-port=9222");
        // chromeOptions.addArguments("--headless");
-       // WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(chromeOptions);
+       WebDriverManager.chromedriver().setup();
 
 
     }
@@ -34,10 +35,10 @@ public class SeleniumSample {
     public void sampleTest() {
 //         Set up the WebDriverManager for chrome driver
 
-        WebDriverManager.chromedriver().setup();
+       // WebDriverManager.chromedriver().setup();
 //         Create the driver object
 
-        driver = new ChromeDriver();
+
 
         driver.manage().window().maximize();
         driver.get("https://www.w3schools.com");
