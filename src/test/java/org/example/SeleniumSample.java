@@ -25,16 +25,16 @@ public class SeleniumSample {
         chromeOptions.addArguments("--disbale-dev-shm-usage");
         chromeOptions.addArguments("--remote-allow-origins=*");
        // chromeOptions.addArguments("--headless");
-        WebDriverManager.chromedriver().setup();
+       // WebDriverManager.chromedriver().setup();
 
 
     }
     @Test
     public void sampleTest() {
-        // Set up the wWebDriverManager for chrome driver
+//         Set up the WebDriverManager for chrome driver
 
-//        WebDriverManager.chromedriver().setup();
-        // Create the driver object
+        WebDriverManager.chromedriver().setup();
+//         Create the driver object
 
         driver = new ChromeDriver();
 
