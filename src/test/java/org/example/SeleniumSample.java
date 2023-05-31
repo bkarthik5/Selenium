@@ -26,7 +26,7 @@ public class SeleniumSample {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");// headless flag for chrome
+        options.addArguments("--headless=new");// headless flag for chrome
         options.addArguments("--start-maximized");
         options.addArguments("disable-gpu");;
         driver = new ChromeDriver(options);
