@@ -20,7 +20,7 @@ public class SeleniumSample {
     @BeforeTest
     void setup() {
         ChromeOptions chromeOptions=new ChromeOptions();
-        chromeOptions.setHeadless(true);
+       // chromeOptions.setHeadless(false);
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disbale-dev-shm-usage");
         chromeOptions.addArguments("--remote-allow-origins=*");
