@@ -7,10 +7,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class SeleniumSample {
     static WebDriver driver;
@@ -19,11 +22,47 @@ public class SeleniumSample {
 //    String gridURL = "@hub.lambdatest.com/wd/hub";
     @BeforeTest
     void setup() {
-        ChromeOptions chromeOptions=new ChromeOptions();
-        chromeOptions.setHeadless(true);
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disbale-dev-shm-usage");
+//        ChromeOptions chromeOptions=new ChromeOptions();
+//        chromeOptions.setHeadless(true);
+//        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.addArguments("--disbale-dev-shm-usage");
+//        chromeOptions.addArguments("--remote-allow-origins=*");
+//       // chromeOptions.addArguments("--headless");
+//        WebDriverManager.chromedriver().setup();
+
         WebDriverManager.chromedriver().setup();
+
+        ChromeOptions options = new ChromeOptions();
+
+//options.addArguments("--headless");
+
+        options.addArguments("--disable-notifications");
+
+        options.addArguments("--disable-gpu");
+
+        options.addArguments("--disable-extensions");
+
+        options.addArguments("--no-sandbox");
+
+        options.addArguments("--disable-dev-shm-usage");
+
+        options.addArguments("--remote-allow-origins=*");  // this i added  this and it worked, Thanks a ton  xinchao zhang !!
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+        options.merge(capabilities);
+
+        driver = new ChromeDriver(options);
+
+        driver.manage().window().maximize();
+
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+
     }
     @Test
     public void sampleTest() {
@@ -32,9 +71,9 @@ public class SeleniumSample {
 //        WebDriverManager.chromedriver().setup();
         // Create the driver object
 
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
+//        driver = new ChromeDriver();
+//
+//        driver.manage().window().maximize();
         driver.get("https://www.w3schools.com");
         String expectedTitle = "W3Schools Online Web Tutorials";
         String actualTitle = driver.getTitle();
