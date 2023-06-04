@@ -54,8 +54,8 @@ public class SeleniumSample {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        driver.findElement(By.cssSelector("#navbtn_tutorials")).click();
-        driver.findElement(By.xpath("//a[@class='w3-bar-item ga-top-drop w3-button'][text()='Learn HTML']")).click();
+//        driver.findElement(By.cssSelector("#navbtn_tutorials")).click();
+//        driver.findElement(By.xpath("//a[@class='w3-bar-item ga-top-drop w3-button'][text()='Learn HTML']")).click();
     }
     @AfterTest
     void teardown() {
